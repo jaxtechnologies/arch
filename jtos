@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-#  ____ _____ ___  ____
-# |  _ \_   _/ _ \/ ___|   Derek Taylor (DistroTube)
-# | | | || || | | \___ \   http://www.youtube.com/c/DistroTube
-# | |_| || || |_| |___) |  http://www.gitlab.com/dtos/dtos
-# |____/ |_| \___/|____/
+#   ████████╗  █████╗  ██╗   ██╗  ████████╗ ███████╗  ██████╗ ██╗  ██╗
+#   ╚══██╔══╝ ██╔══██╗  ██╗ ██╔╝  ╚══██╔══╝ ██╔════╝ ██╔════╝ ██║  ██║
+#      ██║    ███████║   ████╔╝      ██║    ███████╗ ██║      ███████║
+#   ██ ██║    ██╔══██║  ██╔╝██╗      ██║    ██╔════╝ ██║      ██╔══██║
+#   ╚███╔╝    ██║  ██║ ██╔╝  ██╗     ██║    ███████╗ ╚██████╗ ██║  ██║
+#    ╚══╝     ╚═╝  ╚═╝ ╚═╝   ╚═╝     ╚═╝    ╚══════╝  ╚═════╝ ╚═╝  ╚═╝
 #
-# NAME: DTOS
-# DESC: An installation and deployment script for DT's Xmonad desktop.
-# WARNING: Run this script at your own risk.
+# NAME: JTOS
+# DESC: An installation and deployment script for JaxTech's Xmonad desktop.
+# Adapted from Derek Taylor's (DistroTube) DTOS script... Also inspiration from Chris Titus's ArchTitus script...
 # DEPENDENCIES: dialog
 
 if [ "$(id -u)" = 0 ]; then
@@ -143,7 +144,8 @@ done
 
 # Let's install each package listed in the pkglist.txt file.
 # Experiment with this list more...
-sudo pacman --needed --ask 4 -Sy - < pkglist.txt || error "Failed to install required packages."
+#sudo pacman --needed --ask 4 -Sy - < pkglist.txt || error "Failed to install required packages."
+
 
 #echo "################################################################"
 #echo "## Copying DTOS configuration files from /etc/dtos into \$HOME ##"
@@ -215,6 +217,9 @@ xmonadctl_compile || echo "Compiling the xmonadctl script failed!"
 #            ;;
 #    esac
 #done
+
+#sudo pacman -Sy sddm multicolor-sddm-theme
+sudo pacman -Sy sddm
 
 # Disable the current login manager
 sudo systemctl disable $(grep '/usr/s\?bin' /etc/systemd/system/display-manager.service | awk -F / '{print $NF}') || echo "Cannot disable current display manager."
