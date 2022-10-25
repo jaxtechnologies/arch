@@ -1,0 +1,8 @@
+bash
+git
+htop
+multicolor-sddm-theme
+picom
+sddm
+vim
+xterm
