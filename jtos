@@ -47,8 +47,9 @@ distrowarning() { \
 grep -qs "#ParallelDownloads" /etc/pacman.conf && speedwarning
 grep -qs "ID=arch" /etc/os-release || distrowarning
 
-sudo echo LANG=en_US.UTF-8 > /etc/locale.conf
-sudo echo LC_CTYPE=en_US.UTF-8 > /etc/locale.conf
+# https://www.shellhacks.com/sudo-echo-to-file-permission-denied/
+echo LANG=en_US.UTF-8 | sudo tee /etc/locale.conf
+echo LC_CTYPE=en_US.UTF-8 | sudo tee -a /etc/locale.conf
 
 localewarning() { \
         [[ -z $LANG || -z $LC_CTYPE ]] && \
