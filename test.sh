@@ -20,8 +20,8 @@ echo ""
 echo ""
 echo ""
 echo "Current install path is $install_path "
-mkdir -p ~/.config/xmonad
+[ ! -d ~/.config/xmonad ] && sudo mkdir -p ~/.config/xmonad
 pwd
 sleep 10
-cp -f $install_path/xmonad.hs ~/.config/xmonad/
+sudo mv $install_path/xmonad.hs ~/.config/xmonad/
 sleep 10
