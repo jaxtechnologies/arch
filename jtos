@@ -74,7 +74,8 @@ lastchance || error "User choose to exit."
 ######################################
 ###  PACKAGE INSTALLATION SECTION  ###
 ######################################
-sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox sddm multicolor-sddm-theme
+#sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox sddm multicolor-sddm-theme
+sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox sddm
 
 mv $install_path/xmonad.hs ~/.config/xmonad/xmonad.hs
 
