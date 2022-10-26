@@ -121,11 +121,6 @@ echo "###################################"
 [ ! -f "/etc/sddm.conf" ] && \
     sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf || echo "Default sddm system config file is not found."
 
-# ArcoLinux B Awesome uses this config location.
-#[ -f "/etc/sddm.conf.d/kde_settings.conf" ] && \
-#    sudo cp /etc/sddm.conf.d/kde_settings.conf /etc/sddm.conf.d/kde_settings.backup && \
-#    sudo sed -i 's/^Current=*.*/Current=multicolor-sddm-theme/g' /etc/sddm.conf.d/kde_settings.conf
-
 echo "##############################"
 echo "## JTOS has been installed! ##"
 echo "##############################"
