@@ -5,6 +5,8 @@
 # Top logo inspiration came from Chris Titus's ArchTitus script...
 # DEPENDENCIES: dialog
 
+clear
+
 echo -ne "
    ████████╗  █████╗  ██╗   ██╗  ████████╗ ███████╗  ██████╗ ██╗  ██╗
    ╚══██╔══╝ ██╔══██╗  ██╗ ██╔╝  ╚══██╔══╝ ██╔════╝ ██╔════╝ ██║  ██║
@@ -12,7 +14,10 @@ echo -ne "
    ██ ██║    ██╔══██║  ██╔╝██╗      ██║    ██╔════╝ ██║      ██╔══██║
    ╚███╔╝    ██║  ██║ ██╔╝  ██╗     ██║    ███████╗ ╚██████╗ ██║  ██║
     ╚══╝     ╚═╝  ╚═╝ ╚═╝   ╚═╝     ╚═╝    ╚══════╝  ╚═════╝ ╚═╝  ╚═╝
+
 "
+echo " JTOS script will launch in 5 seconds..."
+
 sleep 5
 
 if [ "$(id -u)" = 0 ]; then
