@@ -81,8 +81,9 @@ echo ""
 echo ""
 echo $install_path
 [ ! -d ~/.config/xmonad ] && sudo mkdir -p ~/.config/xmonad
+pwd
 sleep 10
-mv $install_path/xmonad.hs ~/.config/xmonad/
+cp -f $install_path/xmonad.hs ~/.config/xmonad/
 sleep 10
 
 
