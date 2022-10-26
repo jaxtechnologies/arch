@@ -8,8 +8,11 @@
 #
 # NAME: JTOS
 # DESC: An installation and deployment script for JaxTech's Xmonad desktop.
-# Adapted from Derek Taylor's (DistroTube) DTOS script... Also inspiration from Chris Titus's ArchTitus script...
+# Adapted from Derek Taylor's (DistroTube) DTOS script...
+# Top logo inspiration came from Chris Titus's ArchTitus script...
 # DEPENDENCIES: dialog
+
+install_path=$(pwd)
 
 if [ "$(id -u)" = 0 ]; then
     echo "##################################################################"
@@ -68,117 +71,12 @@ lastchance() { \
 
 lastchance || error "User choose to exit."
 
-#addrepo() { \
-#    echo "#########################################################"
-#    echo "## Adding the JTOS core repository to /etc/pacman.conf ##"
-#    echo "#########################################################"
-#    grep -qxF "[dtos-core-repo]" /etc/pacman.conf ||
-#        ( echo " "; echo "[dtos-core-repo]"; echo "SigLevel = Required DatabaseOptional"; \
-#        echo "Server = https://gitlab.com/dtos/\$repo/-/raw/main/\$arch") | sudo tee -a /etc/pacman.conf
-#}
+######################################
+###  PACKAGE INSTALLATION SECTION  ###
+######################################
+sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox sddm multicolor-sddm-theme
 
-#addrepo || error "Error adding DTOS repo to /etc/pacman.conf."
-
-#addkeyserver() { \
-#    echo "#######################################################"
-#    echo "## Adding keyservers to /etc/pacman.d/gnupg/gpg.conf ##"
-#    echo "#######################################################"
-#    grep -qxF "keyserver.ubuntu.com:80" /etc/pacman.d/gnupg/gpg.conf || echo "keyserver hkp://keyserver.ubuntu.com:80" | sudo tee -a /etc/pacman.d/gnupg/gpg.conf
-#    grep -qxF "keyserver.ubuntu.com:443" /etc/pacman.d/gnupg/gpg.conf || echo "keyserver hkps://keyserver.ubuntu.com:443" | sudo tee -a /etc/pacman.d/gnupg/gpg.conf
-#}
-
-#addkeyserver || error "Error adding keyservers to /etc/pacman.d/gnupg/gpg.conf"
-
-#receive_key() { \
-#    local _pgpkey="A62D56CABD8DD76E"
-#    echo "#####################################"
-#    echo "## Adding PGP key $_pgpkey ##"
-#    echo "#####################################"
-#    sudo pacman-key --recv-key $_pgpkey
-#    sudo pacman-key --lsign-key $_pgpkey
-#}
-
-#receive_key || error "Error receiving PGP key $_pgpkey"
-
-echo "##################################################"
-echo "##        CHOOSE YOUR WINDOW MANAGER(S)         ##"
-echo "##    Choices are: xmonad, awesome, & qtile.    ##"
-echo "##  You should choose at least one, otherwise,  ##"
-echo "##  you will not have a graphical environment.  ##"
-echo "## If unsure, Xmonad is the recommended choice. ##"
-echo "##################################################"
-
-while true; do
-    read -p "Do you wish to install XMonad? (Yy/Nn)" yn
-    case $yn in
-        #[Yy]* ) sudo pacman -Sy xmonad xmonad-contrib xmobar dtos-xmonad dtos-xmobar;
-        [Yy]* ) sudo pacman -Sy xmonad xmonad-contrib xmobar xterm alacritty vim firefox;
-                break;;
-        [Nn]* ) echo "You choose not to install XMonad.";
-                break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
-
-#while true; do
-#read -p "Do you wish to install Awesome? (Yy/Nn)" yn
-#    case $yn in
-#        [Yy]* ) sudo pacman -Sy awesome dtos-awesome ;
-#                break;;
-#        [Nn]* ) echo "You choose not to install Awesome.";
-#                break;;
-#        * ) echo "Please answer yes or no.";;
-#    esac
-#done
-
-#while true; do
-#    read -p "Do you wish to install Qtile? (Yy/Nn)" yn
-#    case $yn in
-#        [Yy]* ) sudo pacman -Sy qtile dtos-qtile ;
-#                break;;
-#        [Nn]* ) echo "You choose not to install Qtile." ;
-#               break;;
-#        * ) echo "Please answer yes or no.";;
-#    esac
-#done
-
-# Let's install each package listed in the pkglist.txt file.
-# Experiment with this list more...
-#sudo pacman --needed --ask 4 -Sy - < pkglist.txt || error "Failed to install required packages."
-
-
-#echo "################################################################"
-#echo "## Copying DTOS configuration files from /etc/dtos into \$HOME ##"
-#echo "################################################################"
-#[ ! -d /etc/dtos ] && sudo mkdir /etc/dtos
-#[ -d /etc/dtos ] && mkdir ~/dtos-backup-$(date +%Y.%m.%d-%H%M) && cp -Rf /etc/dtos ~/dtos-backup-$(date +%Y.%m.%d-%H%M)
-#[ ! -d ~/.config ] && mkdir ~/.config
-#[ -d ~/.config ] && mkdir ~/.config-backup-$(date +%Y.%m.%d-%H%M) && cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H%M)
-#cd /etc/dtos && cp -Rf . ~ && cd -
-
-# Change all scripts in .local/bin to be executable.
-find $HOME/.local/bin -type f -print0 | xargs -0 chmod 775
-
-#echo "#########################################################"
-#echo "## Installing Doom Emacs. This may take a few minutes. ##"
-#echo "#########################################################"
-#[ -d ~/.emacs.d ] && mv ~/.emacs.d ~/.emacs.d.bak.$(date +"%Y%m%d_%H%M%S")
-#[ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak.$(date +"%Y%m%d_%H%M%S")
-#git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-#~/.emacs.d/bin/doom --force install
-#~/.emacs.d/bin/doom sync
-
-#[ ! -d /etc/pacman.d/hooks ] && sudo mkdir /etc/pacman.d/hooks
-#sudo cp /etc/dtos/.config/xmonad/pacman-hooks/recompile-xmonad.hook /etc/pacman.d/hooks/
-#sudo cp /etc/dtos/.config/xmonad/pacman-hooks/recompile-xmonadh.hook /etc/pacman.d/hooks/
-
-#[ ! -d $HOME/.config/dmscripts ] && mkdir $HOME/.config/dmscripts
-#cp /etc/dmscripts/config $HOME/.config/dmscripts/config
-#sed -i 's/DMBROWSER=\"brave\"/DMBROWSER=\"qutebrowser\"/g' $HOME/.config/dmscripts/config
-#sed -i 's/DMTERM=\"st -e\"/DMTERM=\"alacritty -e\"/g' $HOME/.config/dmscripts/config
-#sed -i 's/setbg_dir=\"${HOME}\/Pictures\/Wallpapers\"/setbg_dir=\"\/usr\/share\/backgrounds\/dtos-backgrounds\"/g' $HOME/.config/dmscripts/config
-
-mv xmonad.hs ~/.config/xmonad/xmonad.hs
+mv $install_path/xmonad.hs ~/.config/xmonad/xmonad.hs
 
 xmonad_recompile() { \
     echo "########################"
@@ -197,29 +95,6 @@ xmonadctl_compile() { \
 }
 
 xmonadctl_compile || echo "Compiling the xmonadctl script failed!"
-
-#PS3='Set default user shell (enter number): '
-#shells=("fish" "bash" "zsh" "quit")
-#select choice in "${shells[@]}"; do
-#    case $choice in
-#         fish | bash | zsh)
-#            sudo chsh $USER -s "/bin/$choice" && \
-#            echo -e "$choice has been set as your default USER shell. \
-#                    \nLogging out is required for this take effect."
-#            break
-#            ;;
-#         quit)
-#            echo "User quit without changing shell."
-#            break
-#            ;;
-#         *)
-#            echo "invalid option $REPLY"
-#            ;;
-#    esac
-#done
-
-#sudo pacman -Sy sddm multicolor-sddm-theme
-sudo pacman -Sy sddm
 
 # Disable the current login manager
 sudo systemctl disable $(grep '/usr/s\?bin' /etc/systemd/system/display-manager.service | awk -F / '{print $NF}') || echo "Cannot disable current display manager."
@@ -257,9 +132,9 @@ echo "##############################"
 while true; do
     read -p "Do you want to reboot to get your jtos? [Y/n] " yn
     case $yn in
-        [Yy]* ) reboot;;
+        [Yy]* ) sudo reboot;;
         [Nn]* ) break;;
-        "" ) reboot;;
+        "" ) sudo reboot;;
         * ) echo "Please answer yes or no.";;
     esac
 done
