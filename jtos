@@ -77,7 +77,7 @@ lastchance || error "User choose to exit."
 #sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox sddm multicolor-sddm-theme
 sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox sddm
 
-mv $install_path/xmonad.hs ~/.config/xmonad/
+cp $install_path/xmonad.hs ~/.config/xmonad/
 
 xmonad_recompile() { \
     echo "########################"
@@ -88,14 +88,14 @@ xmonad_recompile() { \
 
 xmonad_recompile || echo "Recompiling Xmonad failed!"
 
-xmonadctl_compile() { \
-    echo "####################################"
-    echo "## Compiling the xmonadctl script ##"
-    echo "####################################"
-    ghc -dynamic "$HOME"/.config/xmonad/xmonadctl.hs
-}
-
-xmonadctl_compile || echo "Compiling the xmonadctl script failed!"
+#xmonadctl_compile() { \
+#    echo "####################################"
+#    echo "## Compiling the xmonadctl script ##"
+#    echo "####################################"
+#    ghc -dynamic "$HOME"/.config/xmonad/xmonadctl.hs
+#}
+#
+#xmonadctl_compile || echo "Compiling the xmonadctl script failed!"
 
 # Disable the current login manager
 sudo systemctl disable $(grep '/usr/s\?bin' /etc/systemd/system/display-manager.service | awk -F / '{print $NF}') || echo "Cannot disable current display manager."
