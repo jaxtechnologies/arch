@@ -19,8 +19,8 @@ install_path=$(pwd)
 echo ""
 echo ""
 echo ""
-echo $install_path
-[ ! -d ~/.config/xmonad ] && sudo mkdir -p ~/.config/xmonad
+echo "Current install path is $install_path "
+mkdir -p ~/.config/xmonad
 pwd
 sleep 10
 cp -f $install_path/xmonad.hs ~/.config/xmonad/
