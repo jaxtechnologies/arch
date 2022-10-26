@@ -8,7 +8,7 @@ echo -ne "
    ╚███╔╝    ██║  ██║ ██╔╝  ██╗     ██║    ███████╗ ╚██████╗ ██║  ██║
     ╚══╝     ╚═╝  ╚═╝ ╚═╝   ╚═╝     ╚═╝    ╚══════╝  ╚═════╝ ╚═╝  ╚═╝
 "
-
+sleep 5
 
 
 if [ "$(id -u)" = 0 ]; then
@@ -27,10 +27,4 @@ error() { \
 }
 
 
-
-install_path=$(pwd)
-echo ""
-echo ""
-echo ""
-echo "Current install path is $install_path "
-sleep 10
+sudo sed -i 's/#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
