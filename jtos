@@ -79,6 +79,9 @@ lastchance() { \
 
 lastchance || error "User choose to exit."
 
+### Set System clock synchronization to true
+sudo timedatectl set-ntp true
+
 ######################################
 ###  PACKAGE INSTALLATION SECTION  ###
 ######################################
