@@ -85,7 +85,7 @@ sudo timedatectl set-ntp true
 ######################################
 ###  PACKAGE INSTALLATION SECTION  ###
 ######################################
-sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox nitrogen picom sddm exa
+sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm xwallpaper alacritty vim firefox picom sddm exa
 
 #####################################
 ###  CONFIG INSTALLATION SECTION  ###
@@ -103,7 +103,7 @@ mv $install_path/xmonad.hs ~/.config/xmonad/
 #################################
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 sudo mv $install_path/xmonad.png /usr/share/backgrounds/
-nitrogen --save --set-scaled /usr/share/backgrounds/xmonad.png
+#nitrogen --save --set-scaled /usr/share/backgrounds/xmonad.png
 
 xmonad_recompile() { \
     echo "########################"
