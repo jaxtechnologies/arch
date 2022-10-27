@@ -1,3 +1,3 @@
 # arch-setup
 
-![alt text](http://github.com/jaxtechnologies/jaxtech.png)
+![alt text](http://github.com/jaxtechnologies/arch-setup/jaxtech.png)
