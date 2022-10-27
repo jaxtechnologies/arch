@@ -5,7 +5,7 @@ import Data.Monoid
 import System.Exit
 import XMonad.Util.SpawnOnce    --Used to launch nitrogen and picom
 import XMonad.Util.Run          --Used by spawnPipe for xmobar
-import XMonad.Layout.Spacing
+import XMonad.Layout.Spacing    --Used to create space between tile windows
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
