@@ -3,8 +3,9 @@
 import XMonad
 import Data.Monoid
 import System.Exit
-import XMonad.Util.SpawnOnce	--Used to launch nitrogen and picom
-import XMonad.Util.Run		--Used by spawnPipe for xmobar
+import XMonad.Util.SpawnOnce    --Used to launch nitrogen and picom
+import XMonad.Util.Run          --Used by spawnPipe for xmobar
+import XMonad.Layout.Spacing
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -176,7 +177,14 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+
+mySpacing = spacingRaw False            -- False=Apply even when single window
+                       (Border 5 5 5 5) -- Screen border size top bot rght lft
+                       True             -- Enable screen border
+                       (Border 5 5 5 5) -- Window border size
+                       True             -- Enable window borders
+
+myLayout = mySpacing $ tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
