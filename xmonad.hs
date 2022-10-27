@@ -4,7 +4,7 @@ import XMonad
 import Data.Monoid
 import System.Exit
 import XMonad.Util.SpawnOnce    --Used to launch nitrogen and picom
-import XMonad.Util.Run          --Used by spawnPipe for xmobar & fehbg
+import XMonad.Util.Run          --Used by spawnPipe for xmobar
 import XMonad.Layout.Spacing    --Used to create space between tile windows
 
 import qualified XMonad.StackSet as W
@@ -247,7 +247,7 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-     -- spawnOnce "nitrogen --restore &"
+     spawnOnce "nitrogen --restore &"
      spawnOnce "picom &"
 
 ------------------------------------------------------------------------
@@ -257,7 +257,6 @@ myStartupHook = do
 --
 main = do
      xmproc <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
-     xmproc <- spawnPipe "$HOME/.fehbg"
      xmonad defaults
 
 -- A structure containing your configuration settings, overriding
