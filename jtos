@@ -85,7 +85,7 @@ sudo timedatectl set-ntp true
 ######################################
 ###  PACKAGE INSTALLATION SECTION  ###
 ######################################
-sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox nitrogen picom sddm
+sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm alacritty vim firefox nitrogen picom sddm exa
 
 #####################################
 ###  CONFIG INSTALLATION SECTION  ###
