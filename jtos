@@ -95,6 +95,7 @@ install_path=$(pwd)
 [ ! -d ~/.config/xmobar ] && mkdir -p ~/.config/xmobar
 [ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
 mv $install_path/alacritty.yml ~/.config/alacritty/
+mv $install_path/.bashrc ~/.bashrc
 mv $install_path/wallpaper ~/.config/
 mv $install_path/xmobarrc ~/.config/xmobar/
 mv $install_path/xmonad.hs ~/.config/xmonad/
