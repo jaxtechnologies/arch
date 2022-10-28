@@ -11,7 +11,8 @@
 -- Codes follow the ICAO airport code system
 -- The weather code needs to be changed in two places in this file 
 
-Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+--Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+Config { font = “xft:FreeMonoBold:pixelsize=15:antialias=true:hinting=true”
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
