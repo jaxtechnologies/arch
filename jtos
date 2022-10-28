@@ -85,7 +85,7 @@ sudo timedatectl set-ntp true
 ######################################
 ###  PACKAGE INSTALLATION SECTION  ###
 ######################################
-sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm xwallpaper alacritty vim firefox picom sddm exa htop
+sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate
 
 #####################################
 ###  CONFIG INSTALLATION SECTION  ###
