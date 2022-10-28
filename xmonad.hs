@@ -14,6 +14,7 @@ import System.Exit
 import XMonad.Util.SpawnOnce    --Used to launch nitrogen and picom
 import XMonad.Util.Run          --Used by spawnPipe for xmobar
 import XMonad.Layout.Spacing    --Used to create space between tile windows
+import XMonad.Hooks.ManageDocks --Used to manage xmobar and keep on top
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -192,7 +193,9 @@ mySpacing = spacingRaw False            -- False=Apply even when single window
                        (Border 5 5 5 5) -- Window border size
                        True             -- Enable window borders
 
-myLayout = mySpacing $ tiled ||| Mirror tiled ||| Full
+-- mySpacing (adds spacing around the tiles)
+-- avoidStruts (keeps xmobar on top)
+myLayout = mySpacing $ avoidStruts tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -257,16 +260,17 @@ myLogHook = return ()
 myStartupHook = do
      --spawnOnce "nitrogen --restore &"
      spawnOnce "xargs xwallpaper --stretch < $HOME/.config/wallpaper"
-     spawnOnce "picom &"
+     --spawnOnce "picom &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
--- Run xmonad with the settings you specify. No need to modify this.
---
+-- spawnPipe "xmobar -x 0", launches xmobar on monitor 0 using config supplied
+-- last line was (xmonad defaults) but we changed to (xmonad $ docks defaults) to use the xmobar dock method
 main = do
      xmproc <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
-     xmonad defaults
+     xmproc <- spawnPipe "picom"
+     xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
