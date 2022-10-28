@@ -8,7 +8,8 @@
 --
 -- Custom xmobar file for JaxTech
 -- Weather codes for my area are KNIP (Jacksonville NAS) & KSGJ (St. Augustine)
--- The weather code needs to be changed in two places
+-- Codes follow the ICAO airport code system
+-- The weather code needs to be changed in two places in this file 
 
 Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , bgColor = "black"
