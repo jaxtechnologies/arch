@@ -85,7 +85,7 @@ sudo timedatectl set-ntp true
 ######################################
 ###  PACKAGE INSTALLATION SECTION  ###
 ######################################
-sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip
+sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib
 
 #####################################
 ###  CONFIG INSTALLATION SECTION  ###
@@ -94,11 +94,13 @@ install_path=$(pwd)
 [ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
 [ ! -d ~/.config/xmobar ] && mkdir -p ~/.config/xmobar
 [ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
+[ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
 mv $install_path/alacritty.yml ~/.config/alacritty/
 mv $install_path/.bashrc ~/.bashrc
 mv $install_path/wallpaper ~/.config/
 mv $install_path/xmobarrc ~/.config/xmobar/
 mv $install_path/xmonad.hs ~/.config/xmonad/
+mv $install_path/pacupdate ~/.local/bin/
 
 #################################
 ###  SETUP WALLPAPER SECTION  ###
