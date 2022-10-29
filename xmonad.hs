@@ -19,10 +19,15 @@ import XMonad.Hooks.ManageDocks --Used to manage xmobar and keep on top
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
--- The preferred terminal program, which is used in a binding below and by
--- certain contrib modules.
 --
+--
+-- My Preferred Settings
+--
+--
+myModMask       = mod4Mask          --Super/Windows key
+myBorderWidth   = 2                 --Width of tile border
 myTerminal      = "alacritty"
+
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -32,16 +37,6 @@ myFocusFollowsMouse = True
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
--- Width of the window border in pixels.
---
-myBorderWidth   = 2
-
--- modMask lets you specify which modkey you want to use. The default
--- is mod1Mask ("left alt").  You may also consider using mod3Mask
--- ("right alt"), which does not conflict with emacs keybindings. The
--- "windows key" is usually mod4Mask.
---
-myModMask       = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
