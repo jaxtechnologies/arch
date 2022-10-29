@@ -6,27 +6,40 @@
 --   ╚███╔╝    ██║  ██║ ██╔╝  ██╗     ██║    ███████╗ ╚██████╗ ██║  ██║
 --    ╚══╝     ╚═╝  ╚═╝ ╚═╝   ╚═╝     ╚═╝    ╚══════╝  ╚═════╝ ╚═╝  ╚═╝
 --
+-- Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
 -- Custom xmobar file for JaxTech
 -- Weather codes for my area are KNIP (Jacksonville NAS) & KSGJ (St. Augustine)
 -- Codes follow the ICAO airport code system
 -- The weather code needs to be changed in two places in this file 
-
---Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-Config { font = "xft:FreeMonoBold:pixelsize=15:antialias=true:hinting=true"
+Config { font = "xft:FreeMonoBold:pixelsize=12:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Font Awesome 6 Brands:pixelsize=12"
+                           , "xft:Font Awesome 6 Free Solid:pixelsize=12"
+                           ]
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
-       , commands = [ Run Weather "KSGJ" ["-t","<station>: <tempF>F","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
-                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Com "uname" ["-s","-r"] "" 36000
-    		    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+       , commands = [ Run Network "enp0s3" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Com "uname" ["-r"] "" 36000
+                    , Run Cpu ["-t","cpu: (<total>%)","-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","mem: <used>M (<usedratio>%)"] 10
+                    , Run DiskU  [("/", "hdd: <free> free")] [] 60                
+                    , Run Uptime ["-t", "uptime: <days>d <hours>h"] 360
+                    , Run Com ".local/bin/pacupdate" [] "pacupdate" 36000
+                    , Run BatteryP ["BAT0"] ["-t", "<acstatus><watts> (<left>%)"] 360
+                    , Run Weather "KSGJ" ["-t","<station>: <tempF>F","-L","32","-H","80","--normal","green","--high","red","--low","lightblue"] 36000
+    		    , Run Date "%b %_d %Y %I:%M:%S " "date" 10
+                    , Run Com "echo" ["<fn=1>\xf17c</fn>"] "ico-penguin" 3600
+                    , Run Com "echo" ["<fn=2>\xf108</fn>"] "ico-cpu" 3600
+                    , Run Com "echo" ["<fn=2>\xf233</fn>"] "ico-mem" 3600
+                    , Run Com "echo" ["<fn=2>\xf0c7</fn>"] "ico-disku" 3600
+                    , Run Com "echo" ["<fn=2>\xf251</fn>"] "ico-uptime" 3600
+                    , Run Com "echo" ["<fn=2>\xf0f3</fn>"] "ico-bell" 3600
+                    , Run Com "echo" ["<fn=2>\xf242</fn>"] "ico-battery" 3600
+                    , Run Com "echo" ["<fn=2>\xf2c9</fn>"] "ico-temp" 3600
+                    , Run Com "echo" ["<fn=2>\xf017</fn>"] "ico-time" 3600
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }{ <fc=#ee9a00>%date%</fc>| %KSGJ% | %uname%"
+       , template = " %enp0s3% }{ <box type=Bottom width=2 mb=2 color=#cc6666><fc=#cc6666>%ico-penguin%  %uname%</fc></box>    <box type=Bottom width=2 mb=2 color=#b5bd68><fc=#b5bd68>%ico-cpu%  <action=`alacritty -e htop`>%cpu%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#e6c547><fc=#e6c547>%ico-mem%  <action=`alacritty -e htop`>%memory%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#81a2be><fc=#81a2be>%ico-disku%  %disku%</fc></box>    <box type=Bottom width=2 mb=2 color=#b294bb><fc=#b294bb>%ico-uptime%  %uptime%</fc></box>    <box type=Bottom width=2 mb=2 color=#70c0ba><fc=#70c0ba>%ico-bell%  %pacupdate%</fc></box>    <box type=Bottom width=2 mb=2 color=#ff3334><fc=#ff3334>%ico-battery%  %battery%</fc></box>    <box type=Bottom width=2 mb=2 color=#ffa833><fc=#ffa833>%ico-temp%  %KSGJ%</fc></box>    <box type=Bottom width=2 mb=2 color=#9ec400><fc=#9ec400>%ico-time% %date%</fc></box>    "
        }
