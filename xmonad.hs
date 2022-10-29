@@ -24,10 +24,11 @@ import qualified Data.Map        as M
 -- My Preferred Settings
 --
 --
-myModMask       = mod4Mask          --Super/Windows key
-myBorderWidth   = 2                 --Width of tile border
-myTerminal      = "alacritty"
-
+myModMask            = mod4Mask          --Super/Windows key
+myBorderWidth        = 2                 --Width of tile border
+myNormalBorderColor  = "#dddddd"
+myFocusedBorderColor = "#ff0000"
+myTerminal           = "alacritty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -36,7 +37,6 @@ myFocusFollowsMouse = True
 -- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
-
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -48,11 +48,6 @@ myClickJustFocuses = False
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
-
--- Border colors for unfocused and focused windows, respectively.
---
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
