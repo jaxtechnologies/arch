@@ -29,6 +29,7 @@ myBorderWidth        = 2                 --Width of tile border
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 myTerminal           = "alacritty"
+myBrowser            = "firefox"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -56,6 +57,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
+    , ((modm, xK_b), spawn (myBrowser))
     , ((modm, xK_p), spawn "dmenu_run")
     
     -- launch gmrun
