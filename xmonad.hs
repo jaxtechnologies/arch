@@ -30,6 +30,7 @@ myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 myTerminal           = "alacritty"
 myBrowser            = "firefox"
+myMusicPlayer        = "cmus"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -55,16 +56,14 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-
-    , ((modm, xK_b), spawn (myBrowser))
-    , ((modm, xK_p), spawn "dmenu_run")
+    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)   -- Launch terminal window
+    , ((modm .|. shiftMask, xK_c     ), kill)                           -- Close focused window
+    , ((modm .|. shiftMask, xK_b     ), spawn (myBrowser))              -- Launch Web Browser
+    , ((modm .|. shiftMask, xK_m     ), spawn (myMusicPlayer))          -- Launch Music Player
+    , ((modm,               xK_p     ), spawn "dmenu_run")              -- Launch DMenu Run
     
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
-
-    -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
