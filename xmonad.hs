@@ -30,7 +30,9 @@ myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 myTerminal           = "alacritty"
 myBrowser            = "firefox"
-myMusicPlayer        = "cmus"
+myMusicPlayer        = "alacritty -e cmus"
+myFileManager        = "pcmanfm"
+--myFileManager        = "lf"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -59,7 +61,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)   -- Launch terminal window
     , ((modm .|. shiftMask, xK_c     ), kill)                           -- Close focused window
     , ((modm .|. shiftMask, xK_b     ), spawn (myBrowser))              -- Launch Web Browser
+    , ((modm .|. shiftMask, xK_f     ), spawn (myFileManager))          -- Launch File Manager
     , ((modm .|. shiftMask, xK_m     ), spawn (myMusicPlayer))          -- Launch Music Player
+    , ((modm .|. shiftMask, xK_t     ), spawn (myTerminal))             -- Launch Terminal Window
     , ((modm,               xK_p     ), spawn "dmenu_run")              -- Launch DMenu Run
     
     -- launch gmrun
