@@ -54,12 +54,10 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-
-    -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
-
+    [ ((modm, xK_t), spawn (myTerminal))
+    , ((modm, xK_b), spawn (myBrowser))
+    , ((modm, xK_p), spawn "dmenu_run")
+    
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
