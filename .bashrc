@@ -18,4 +18,5 @@ alias ll='exa -al --color=always --group-directories-first'  # long format - pre
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias vi='vim'
 alias vix='vim ~/.config/xmonad/xmonad.hs'
+alias vix='vib ~/.config/xmobar/xmobarrc'
 PS1='[\u@\h \W]\$ '
