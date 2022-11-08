@@ -1,3 +1,3 @@
-# arch-setup
+# arch-xmonad-setup
 
 ![JaxTechnologies](jaxtech.png)
