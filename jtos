@@ -82,41 +82,60 @@ lastchance || error "User choose to exit."
 ### Set System clock synchronization to true
 sudo timedatectl set-ntp true
 
-######################################
-###  PACKAGE INSTALLATION SECTION  ###
-######################################
-sudo pacman -Sy xmonad xmonad-contrib xmobar dmenu xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm
-
-#####################################
-###  CONFIG INSTALLATION SECTION  ###
-#####################################
 install_path=$(pwd)
-[ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
-[ ! -d ~/.config/xmobar ] && mkdir -p ~/.config/xmobar
-[ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
-[ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
-mv $install_path/alacritty.yml ~/.config/alacritty/
-mv $install_path/.bashrc ~/.bashrc
-mv $install_path/wallpaper ~/.config/
-mv $install_path/xmobarrc ~/.config/xmobar/
-mv $install_path/xmonad.hs ~/.config/xmonad/
-mv $install_path/pacupdate ~/.local/bin/
 
 #################################
 ###  SETUP WALLPAPER SECTION  ###
 #################################
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
-sudo mv $install_path/xmonad.png /usr/share/backgrounds/
-#nitrogen --save --set-scaled /usr/share/backgrounds/xmonad.png
 
-xmonad_recompile() { \
-    echo "########################"
-    echo "## Recompiling XMonad ##"
-    echo "########################"
-    xmonad --recompile
-}
+clear
+read -p "Do you want to install Xmonad? [Y/n] "
+  if ["$REPLY" = "y" ]; then
+          sudo pacman -Sy xmonad xmonad-contrib xmobar
+          [ ! -d ~/.config/xmobar ] && mkdir -p ~/.config/xmobar
+          [ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
+          mv $install_path/xmobarrc ~/.config/xmobar/
+          mv $install_path/xmonad.hs ~/.config/xmonad/
+          sudo mv $install_path/xmonad.png /usr/share/backgrounds/
+          
+	  xmonad_recompile() { \
+               echo "########################"
+               echo "## Recompiling XMonad ##"
+               echo "########################"
+               xmonad --recompile
+           }
 
-xmonad_recompile || echo "Recompiling Xmonad failed!"
+           xmonad_recompile || echo "Recompiling Xmonad failed!"
+  else
+	  cancel
+  fi
+
+clear
+read -p "Do you want to install Qtile? [Y/n] "
+  if ["$REPLY" = "y" ]; then
+	  sudo pacman -Sy qtile qtile-extras
+          [ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
+          mv $install_path/config.py ~/.config/qtile/
+  else
+	  cancel
+  fi
+
+######################################
+###  PACKAGE INSTALLATION SECTION  ###
+######################################
+sudo pacman -Sy dmenu xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm
+
+#####################################
+###  CONFIG INSTALLATION SECTION  ###
+#####################################
+[ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
+[ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
+mv $install_path/alacritty.yml ~/.config/alacritty/
+mv $install_path/.bashrc ~/.bashrc
+mv $install_path/wallpaper ~/.config/
+mv $install_path/pacupdate ~/.local/bin/
+
 
 # Disable the current login manager
 sudo systemctl disable $(grep '/usr/s\?bin' /etc/systemd/system/display-manager.service | awk -F / '{print $NF}') || echo "Cannot disable current display manager."
