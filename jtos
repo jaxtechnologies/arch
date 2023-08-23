@@ -114,7 +114,7 @@ fi
 clear
 read -p "Do you want to install Qtile... (y/n)? "
 if [ "$REPLY" = "y" ]; then
-	sudo pacman -Sy qtile qtile-extras
+	sudo pacman -Sy qtile
 	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
 	mv $install_path/config.py ~/.config/qtile/
 else
