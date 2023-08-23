@@ -83,13 +83,11 @@ lastchance || error "User choose to exit."
 sudo timedatectl set-ntp true
 
 install_path=$(pwd)
-sleep 5
 
 #################################
 ###  SETUP WALLPAPER SECTION  ###
 #################################
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
-sleep 5
 
 clear
 while true; do
@@ -112,7 +110,6 @@ while true; do
 	}
 
 	xmonad_recompile || echo "Recompiling Xmonad failed!"
-	sleep5
 	;;
         [Nn]* ) break;;
         "" ) sudo reboot;;
@@ -120,25 +117,20 @@ while true; do
     esac
 done
 
-
-read -p "Do you want to install Xmonad? [Y/n] "
-  if [ "$REPLY" = "y" ]; then
-          
-
-
-  else
-	  cancel
-  fi
-
 clear
-read -p "Do you want to install Qtile? [Y/n] "
-  if ["$REPLY" = "y" ]; then
-	  sudo pacman -Sy qtile qtile-extras
-          [ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
-          mv $install_path/config.py ~/.config/qtile/
-  else
-	  cancel
-  fi
+while true; do
+    read -p "Do you want to install Qtile? [Y/n] " yn
+    case $yn in
+        [Yy]* ) 
+	sudo pacman -Sy qtile qtile-extras
+	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
+	mv $install_path/config.py ~/.config/qtile/
+	;;
+        [Nn]* ) break;;
+        "" ) sudo reboot;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 ######################################
 ###  PACKAGE INSTALLATION SECTION  ###
