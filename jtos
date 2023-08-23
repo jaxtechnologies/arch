@@ -83,6 +83,7 @@ lastchance || error "User choose to exit."
 sudo timedatectl set-ntp true
 
 install_path=$(pwd)
+sleep 5
 
 #################################
 ###  SETUP WALLPAPER SECTION  ###
@@ -91,25 +92,39 @@ install_path=$(pwd)
 sleep 5
 
 clear
+while true; do
+    read -p "Do you want to install Xmonad? [Y/n] " yn
+    case $yn in
+        [Yy]* ) 
+	sudo pacman -Sy xmonad xmonad-contrib xmobar
+        sleep 5
+        [ ! -d ~/.config/xmobar ] && mkdir -p ~/.config/xmobar
+        [ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
+        mv $install_path/xmobarrc ~/.config/xmobar/
+        mv $install_path/xmonad.hs ~/.config/xmonad/
+        sudo mv $install_path/xmonad.png /usr/share/backgrounds/
+        
+        xmonad_recompile() { \
+		echo "########################"
+		echo "## Recompiling XMonad ##"
+		echo "########################"
+		xmonad --recompile
+	}
+
+	xmonad_recompile || echo "Recompiling Xmonad failed!"
+	sleep5
+	;;
+        [Nn]* ) break;;
+        "" ) sudo reboot;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+
 read -p "Do you want to install Xmonad? [Y/n] "
   if [ "$REPLY" = "y" ]; then
-          sudo pacman -Sy xmonad xmonad-contrib xmobar
-          sleep 5
-          [ ! -d ~/.config/xmobar ] && mkdir -p ~/.config/xmobar
-          [ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
-          mv $install_path/xmobarrc ~/.config/xmobar/
-          mv $install_path/xmonad.hs ~/.config/xmonad/
-          sudo mv $install_path/xmonad.png /usr/share/backgrounds/
           
-	  xmonad_recompile() { \
-               echo "########################"
-               echo "## Recompiling XMonad ##"
-               echo "########################"
-               xmonad --recompile
-           }
 
-           xmonad_recompile || echo "Recompiling Xmonad failed!"
-           sleep5
 
   else
 	  cancel
