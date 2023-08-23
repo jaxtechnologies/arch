@@ -112,19 +112,14 @@ else
 fi
 
 clear
-while true; do
-    read -p "Do you want to install Qtile? [Y/n] " yn
-    case $yn in
-        [Yy]* ) 
+read -p "Do you want to install Qtile... (y/n)? "
+if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy qtile qtile-extras
 	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
 	mv $install_path/config.py ~/.config/qtile/
-	;;
-        [Nn]* ) break;;
-        "" ) sudo reboot;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+else
+	cancel
+fi
 
 ######################################
 ###  PACKAGE INSTALLATION SECTION  ###
