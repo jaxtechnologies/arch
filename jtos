@@ -82,7 +82,22 @@ lastchance || error "User choose to exit."
 ### Set System clock synchronization to true
 sudo timedatectl set-ntp true
 
+###########################################
+###  BASE PACKAGE INSTALLATION SECTION  ###
+###########################################
+clear
+sudo pacman -Sy dmenu xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm
+
+#####################################
+###  CONFIG INSTALLATION SECTION  ###
+#####################################
 install_path=$(pwd)
+[ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
+[ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
+mv $install_path/alacritty.yml ~/.config/alacritty/
+mv $install_path/.bashrc ~/.bashrc
+mv $install_path/wallpaper ~/.config/
+mv $install_path/pacupdate ~/.local/bin/
 
 ###################################
 ###  SETUP WALLPAPER DIRECTORY  ###
@@ -98,6 +113,7 @@ if [ "$REPLY" = "y" ]; then
         mv $install_path/xmobarrc ~/.config/xmobar/
         mv $install_path/xmonad.hs ~/.config/xmonad/
         sudo mv $install_path/xmonad.png /usr/share/backgrounds/
+	sudo xwallpaper --center /usr/share/backgrounds/xmonad.png
         
         xmonad_recompile() { \
 		echo "########################"
@@ -118,25 +134,10 @@ if [ "$REPLY" = "y" ]; then
 	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
 	mv $install_path/config.py ~/.config/qtile/
         sudo mv $install_path/qtile.png /usr/share/backgrounds/
+	sudo xwallpaper --center /usr/share/backgrounds/qtile.png
 else
 	cancel
 fi
-
-######################################
-###  PACKAGE INSTALLATION SECTION  ###
-######################################
-clear
-sudo pacman -Sy dmenu xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm
-
-#####################################
-###  CONFIG INSTALLATION SECTION  ###
-#####################################
-[ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
-[ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
-mv $install_path/alacritty.yml ~/.config/alacritty/
-mv $install_path/.bashrc ~/.bashrc
-mv $install_path/wallpaper ~/.config/
-mv $install_path/pacupdate ~/.local/bin/
 
 
 # Disable the current login manager
