@@ -156,7 +156,7 @@ echo "## JTOS has been installed! ##"
 echo "##############################"
 
 while true; do
-    read -p "Do you want to reboot to get your jtos? [Y/n] " yn
+    read -p "Ready to reboot into jtos? [Y/n] " yn
     case $yn in
         [Yy]* ) sudo reboot;;
         [Nn]* ) break;;
