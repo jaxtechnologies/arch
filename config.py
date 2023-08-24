@@ -43,7 +43,7 @@ mod = "mod4"                    # Sets mod key to SUPER/WINDOWS
 myTerm = "alacritty"            # My terminal of choice
 myBrowser = "firefox"           # My browser of choice
 myFileMan = "pcmanfm"           # My file manager of choice
-myMusic = "alacritty -e cmus"   # My music manager of choice
+myMusic = "alacritty -e cmus"   # My music player of choice
 
 keys = [
     # A list of available commands that can be bound to keys can be found
