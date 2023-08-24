@@ -37,14 +37,37 @@
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+#from libqtile.utils import guess_terminal
 
-mod = "mod4"
-terminal = guess_terminal()
+mod = "mod4"              # Sets mod key to SUPER/WINDOWS
+myTerm = "alacritty"      # My terminal of choice
+myBrowser = "firefox"     # My browser of choice
+myFileMan = "pcmanfm"     # My file manager of choice
 
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+
+    # The essentials
+    Key([mod, "shift"], "t", lazy.spawn(myTerm), desc="Terminal"),
+    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "shift"], "b", lazy.spawn(myBrowser), desc='Web browser'),
+    Key([mod, "shift"], "f", lazy.spawn(myFileMan), desc='File Manager'),
+    Key([mod, "shift"], "r", lazy.spawn("dmenu_run"), desc='Dmenu Launcher'),
+    Key([mod, "shift"], "w", lazy.layout.next(), desc="Move window focus next window"),
+
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    
+    # Qtile reload and shutdown
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),    
+
+    # Need to work on with dmenu scripts
+    #Key([mod, "shift"], "q", lazy.spawn("dm-logout"), desc="Logout menu"),
+    #Key([mod, "shift"], "r", lazy.spawn("dm-run"), desc='Run Launcher'),  # Will replace Super+Shift+R when working???
+    #Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+###################################################    
+    # Toggle between different layouts as defined below    
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -74,13 +97,6 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
 groups = [Group(i) for i in "123456789"]
