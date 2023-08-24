@@ -39,11 +39,11 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 #from libqtile.utils import guess_terminal
 
-mod = "mod4"              # Sets mod key to SUPER/WINDOWS
-myTerm = "alacritty"      # My terminal of choice
-myBrowser = "firefox"     # My browser of choice
-myFileMan = "pcmanfm"     # My file manager of choice
-myMusic = "cmus"          # My music manager of choice
+mod = "mod4"                    # Sets mod key to SUPER/WINDOWS
+myTerm = "alacritty"            # My terminal of choice
+myBrowser = "firefox"           # My browser of choice
+myFileMan = "pcmanfm"           # My file manager of choice
+myMusic = "alacritty -e cmus"   # My music manager of choice
 
 keys = [
     # A list of available commands that can be bound to keys can be found
