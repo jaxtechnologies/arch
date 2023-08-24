@@ -127,7 +127,6 @@ else
 	cancel
 fi
 
-clear
 read -p "Do you want to install Qtile... (y/n)? "
 if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy qtile
