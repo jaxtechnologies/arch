@@ -117,6 +117,7 @@ if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy qtile
 	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
 	mv $install_path/config.py ~/.config/qtile/
+        sudo mv $install_path/qtile.png /usr/share/backgrounds/
 else
 	cancel
 fi
