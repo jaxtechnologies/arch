@@ -84,9 +84,9 @@ sudo timedatectl set-ntp true
 
 install_path=$(pwd)
 
-#################################
-###  SETUP WALLPAPER SECTION  ###
-#################################
+###################################
+###  SETUP WALLPAPER DIRECTORY  ###
+###################################
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 
 clear
