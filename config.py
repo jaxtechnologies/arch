@@ -43,6 +43,7 @@ mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 myTerm = "alacritty"      # My terminal of choice
 myBrowser = "firefox"     # My browser of choice
 myFileMan = "pcmanfm"     # My file manager of choice
+myMusic = "cmus"          # My music manager of choice
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -53,6 +54,7 @@ keys = [
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "b", lazy.spawn(myBrowser), desc='Web browser'),
     Key([mod, "shift"], "f", lazy.spawn(myFileMan), desc='File Manager'),
+    Key([mod, "shift"], "m", lazy.spawn(myMusic), desc='Music Player'),
     Key([mod, "shift"], "r", lazy.spawn("dmenu_run"), desc='Dmenu Launcher'),
     Key([mod, "shift"], "w", lazy.layout.next(), desc="Move window focus next window"),
 
