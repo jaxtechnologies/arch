@@ -104,7 +104,7 @@ mv $install_path/pacupdate ~/.local/bin/
 ###################################
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 
-clear
+#clear
 read -p "Do you want to install Xmonad... (y/n)? "
 if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy xmonad xmonad-contrib xmobar
@@ -127,6 +127,7 @@ else
 	cancel
 fi
 
+#clear
 read -p "Do you want to install Qtile... (y/n)? "
 if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy qtile
