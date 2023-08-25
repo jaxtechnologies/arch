@@ -152,7 +152,10 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        wallpaper='~/.config/qtile/background.png',
+        #wallpaper_mode='stretch',
+        wallpaper_mode='fill',
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
