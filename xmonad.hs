@@ -254,7 +254,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
      --spawnOnce "nitrogen --restore &"
-     spawnOnce "xargs xwallpaper --stretch < $HOME/.config/wallpaper"
+     spawnOnce "xargs xwallpaper --stretch < $HOME/.config/xmonad/wallpaper"
      --spawnOnce "picom &"
 
 ------------------------------------------------------------------------
