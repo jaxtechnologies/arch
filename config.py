@@ -49,7 +49,7 @@ keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
 
-    # The essentials
+    ##### The essentials #####
     Key([mod, "shift"], "t", lazy.spawn(myTerm), desc="Terminal"),
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "b", lazy.spawn(myBrowser), desc='Web browser'),
@@ -152,7 +152,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper='~/.config/qtile/background.png',
+        wallpaper='~/.config/qtile/qtile.png',
         #wallpaper_mode='stretch',
         wallpaper_mode='fill',
         top=bar.Bar(
