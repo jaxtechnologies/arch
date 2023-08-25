@@ -95,7 +95,7 @@ install_path=$(pwd)
 [ ! -d ~/scripts ] && mkdir -p ~/scripts
 [ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
-mv $install_path/setup_wallpapers.sh ~/scripts/
+mv $install_path/setup_wallpaper.sh ~/scripts/
 mv $install_path/alacritty.yml ~/.config/alacritty/
 mv $install_path/.bashrc ~/.bashrc
 mv $install_path/wallpaper ~/.config/
