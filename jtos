@@ -98,7 +98,6 @@ install_path=$(pwd)
 mv $install_path/setup_wallpaper.sh ~/scripts/
 mv $install_path/alacritty.yml ~/.config/alacritty/
 mv $install_path/.bashrc ~/.bashrc
-mv $install_path/wallpaper ~/.config/
 mv $install_path/pacupdate ~/.local/bin/
 
 ###################################
@@ -114,6 +113,7 @@ if [ "$REPLY" = "y" ]; then
         [ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
         mv $install_path/xmobarrc ~/.config/xmobar/
         mv $install_path/xmonad.hs ~/.config/xmonad/
+	mv $install_path/xmonad_bg ~/.config/xmonad/
         sudo mv $install_path/xmonad.png /usr/share/backgrounds/
 
         xmonad_recompile() { \
