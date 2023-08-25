@@ -63,9 +63,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_b     ), spawn (myBrowser))              -- Launch Web Browser
     , ((modm .|. shiftMask, xK_f     ), spawn (myFileManager))          -- Launch File Manager
     , ((modm .|. shiftMask, xK_m     ), spawn (myMusicPlayer))          -- Launch Music Player
-    
-    , ((modm,               xK_p     ), spawn "dmenu_run")              -- Launch DMenu Run
-    
+    , ((modm .|. shiftMask, xK_d     ), spawn "dmenu_run")              -- Launch DMenu Run
+        
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
