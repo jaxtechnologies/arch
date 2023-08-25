@@ -113,7 +113,7 @@ if [ "$REPLY" = "y" ]; then
         [ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
         mv $install_path/xmobarrc ~/.config/xmobar/
         mv $install_path/xmonad.hs ~/.config/xmonad/
-	mv $install_path/xmonad_bg ~/.config/xmonad/
+	mv $install_path/xmonad_bg ~/.config/xmonad/.xmonad_bg
         sudo mv $install_path/xmonad.png /usr/share/backgrounds/
 
         xmonad_recompile() { \
