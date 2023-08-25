@@ -55,7 +55,7 @@ keys = [
     Key([mod, "shift"], "b", lazy.spawn(myBrowser), desc='Web browser'),
     Key([mod, "shift"], "f", lazy.spawn(myFileMan), desc='File Manager'),
     Key([mod, "shift"], "m", lazy.spawn(myMusic), desc='Music Player'),
-    Key([mod, "shift"], "r", lazy.spawn("dmenu_run"), desc='Dmenu Launcher'),
+    Key([mod, "shift"], "r", lazy.spawn("rofi -show drun"), desc='Rofi Launcher'),
     Key([mod, "shift"], "w", lazy.layout.next(), desc="Move window focus next window"),
 
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
