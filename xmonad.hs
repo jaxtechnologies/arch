@@ -67,7 +67,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_d     ), spawn "dmenu_run")              -- Launch DMenu Run
 
     ##### WINDOW MOVEMENT #####
-    , ((modm .|. shiftMask, xK_w   ), windows W.focusDown)            -- Move focus to the next window
+    , ((modm .|. shiftMask, xK_w     ), windows W.focusDown)            -- Move focus to the next window
     
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
