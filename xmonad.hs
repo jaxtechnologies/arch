@@ -58,7 +58,7 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    ##### ESSENTIALS #####
+    -- ESSENTIALS
     [ ((modm .|. shiftMask, xK_t     ), spawn (myTerminal))             -- Launch Terminal Window
     , ((modm .|. shiftMask, xK_c     ), kill)                           -- Close focused window
     , ((modm .|. shiftMask, xK_b     ), spawn (myBrowser))              -- Launch Web Browser
@@ -66,7 +66,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_m     ), spawn (myMusicPlayer))          -- Launch Music Player
     , ((modm .|. shiftMask, xK_d     ), spawn "dmenu_run")              -- Launch DMenu Run
 
-    ##### WINDOW MOVEMENT #####
+    -- WINDOW MOVEMENT
     , ((modm .|. shiftMask, xK_w     ), windows W.focusDown)            -- Move focus to the next window
     
     -- launch gmrun
