@@ -34,7 +34,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, widget
+#from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 #from libqtile.utils import guess_terminal
@@ -157,6 +158,10 @@ screens = [
         wallpaper_mode='fill',
         top=bar.Bar(
             [
+                widget.Image(
+                    filename = "~/.config/qtile/icons/qtile-launch.png",
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)}
+                ),
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
@@ -167,6 +172,7 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.TextBox(" Bluetooth", name="default"),
                 widget.TextBox("default config", name="default"),
                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
