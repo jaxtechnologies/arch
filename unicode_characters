@@ -1,0 +1,5 @@
+("", "rofi-bluetooth", "Bluetooth"),
+("", "rofi -modi 'clipboard:greenclip print' -show", "Clipboard History"),
+("", "rofi-pass", "Passwords"),
+("", "rofi-todo -f /home/ralsina/todo.txt", "Todo"),
+("", "flameshot gui", "Screenshot"),
