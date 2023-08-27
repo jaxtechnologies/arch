@@ -95,10 +95,9 @@ install_path=$(pwd)
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 [ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
-mv $install_path/configs/alacritty.yml ~/.config/alacritty/
 mv $install_path/configs/.bashrc ~/.bashrc
+mv $install_path/configs/alacritty.yml ~/.config/alacritty/
 mv $install_path/scripts/* ~/.local/bin/
-
 
 #clear
 read -p "Do you want to install Xmonad... (y/n)? "
