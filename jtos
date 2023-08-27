@@ -129,7 +129,9 @@ read -p "Do you want to install Qtile... (y/n)? "
 if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy qtile
 	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
+	[ ! -d ~/.config/qtile/icons ] && mkdir -p ~/.config/qtile/icons
 	mv $install_path/configs/config.py ~/.config/qtile/
+	mv $install_path/images/qtile-launch.png ~/.config/qtile/icons/
         sudo mv $install_path/backgrounds/qtile.png /usr/share/backgrounds/
 else
 	cancel
