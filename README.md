@@ -1,3 +1,3 @@
 # arch-setup
 
-![JaxTechnologies](jaxtech.png)
+![JaxTechnologies](images/jaxtech.png)
