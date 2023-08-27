@@ -88,22 +88,18 @@ sudo timedatectl set-ntp true
 clear
 sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm
 
-#####################################
-###  CONFIG INSTALLATION SECTION  ###
-#####################################
+##########################################
+###  BASE CONFIG INSTALLATION SECTION  ###
+##########################################
 install_path=$(pwd)
-[ ! -d ~/scripts ] && mkdir -p ~/scripts
+[ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 [ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
-mv $install_path/setup_wallpaper.sh ~/scripts/
 mv $install_path/alacritty.yml ~/.config/alacritty/
 mv $install_path/.bashrc ~/.bashrc
 mv $install_path/pacupdate ~/.local/bin/
+mv $install_path/setup_wallpaper.sh ~/.local/bin/
 
-###################################
-###  SETUP WALLPAPER DIRECTORY  ###
-###################################
-[ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 
 #clear
 read -p "Do you want to install Xmonad... (y/n)? "
