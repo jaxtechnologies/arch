@@ -58,8 +58,7 @@ keys = [
     Key([mod, "shift"], "m", lazy.spawn(myMusic), desc='Music Player'),
     Key([mod, "shift"], "r", lazy.spawn("rofi -show drun -show-icons"), desc='Rofi Launcher'),
     Key([mod, "shift"], "w", lazy.layout.next(), desc="Move window focus next window"),
-
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod, "shift"], "space", lazy.next_layout(), desc="Toggle between layouts"),
     
     # Qtile reload and shutdown
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
