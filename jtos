@@ -95,10 +95,9 @@ install_path=$(pwd)
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 [ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
-mv $install_path/alacritty.yml ~/.config/alacritty/
-mv $install_path/.bashrc ~/.bashrc
-mv $install_path/pacupdate ~/.local/bin/
-mv $install_path/setup_wallpaper.sh ~/.local/bin/
+mv $install_path/configs/alacritty.yml ~/.config/alacritty/
+mv $install_path/configs/.bashrc ~/.bashrc
+mv $install_path/scripts/* ~/.local/bin/
 
 
 #clear
@@ -107,9 +106,9 @@ if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy xmonad xmonad-contrib xmobar
         [ ! -d ~/.config/xmobar ] && mkdir -p ~/.config/xmobar
         [ ! -d ~/.config/xmonad ] && mkdir -p ~/.config/xmonad
-        mv $install_path/xmobarrc ~/.config/xmobar/
-        mv $install_path/xmonad.hs ~/.config/xmonad/
-	mv $install_path/xmonad_bg ~/.config/xmonad/.xmonad_bg
+        mv $install_path/configs/xmobarrc ~/.config/xmobar/
+        mv $install_path/configs/xmonad.hs ~/.config/xmonad/
+	mv $install_path/configs/xmonad_bg ~/.config/xmonad/.xmonad_bg
         sudo mv $install_path/backgrounds/xmonad.png /usr/share/backgrounds/
 
         xmonad_recompile() { \
@@ -129,7 +128,7 @@ read -p "Do you want to install Qtile... (y/n)? "
 if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy qtile
 	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
-	mv $install_path/config.py ~/.config/qtile/
+	mv $install_path/configs/config.py ~/.config/qtile/
         sudo mv $install_path/backgrounds/qtile.png /usr/share/backgrounds/
 else
 	cancel
