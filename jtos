@@ -110,7 +110,7 @@ if [ "$REPLY" = "y" ]; then
         mv $install_path/xmobarrc ~/.config/xmobar/
         mv $install_path/xmonad.hs ~/.config/xmonad/
 	mv $install_path/xmonad_bg ~/.config/xmonad/.xmonad_bg
-        sudo mv $install_path/xmonad.png /usr/share/backgrounds/
+        sudo mv $install_path/backgrounds/xmonad.png /usr/share/backgrounds/
 
         xmonad_recompile() { \
 		echo "########################"
@@ -130,7 +130,7 @@ if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy qtile
 	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
 	mv $install_path/config.py ~/.config/qtile/
-        sudo mv $install_path/qtile.png /usr/share/backgrounds/
+        sudo mv $install_path/backgrounds/qtile.png /usr/share/backgrounds/
 else
 	cancel
 fi
