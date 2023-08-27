@@ -99,7 +99,7 @@ install_path=$(pwd)
 mv $install_path/configs/.bashrc ~/.bashrc
 mv $install_path/configs/alacritty.yml ~/.config/alacritty/
 mv $install_path/configs/power.rasi ~/.config/rofi/
-mv $install_path/scripts/* ~/.local/bin/
+sudo mv $install_path/scripts/* /usr/local/bin/
 
 #clear
 read -p "Do you want to install Xmonad... (y/n)? "
