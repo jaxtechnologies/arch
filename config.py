@@ -179,12 +179,6 @@ screens = [
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
             widget.LaunchBar(padding=0, text_only=True, font="Font Awesome 6 Free", fontsize=16, foreground="2e3440", progs=[
-                ("", "rofi-bluetooth", "Bluetooth"),
-                ("", "rofi -modi 'clipboard:greenclip print' -show", "Clipboard History"),
-                ("", "rofi-pass", "Passwords"),
-                ("", "rofi-todo -f /home/ralsina/todo.txt", "Todo"),
-                ("", "flameshot gui", "Screenshot"),
-            ]),
         ),
     ),
 ]
