@@ -45,18 +45,20 @@ myTerm = "alacritty"            # My terminal of choice
 myBrowser = "firefox"           # My browser of choice
 myFileMan = "pcmanfm"           # My file manager of choice
 myMusic = "alacritty -e cmus"   # My music player of choice
+myPowerMenu = "/home/jtos/scripts/powermenu"   # My PowerMenu
 
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
 
     ##### The essentials #####
-    Key([mod, "shift"], "t", lazy.spawn(myTerm), desc="Terminal"),
-    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "b", lazy.spawn(myBrowser), desc='Web browser'),
+    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "f", lazy.spawn(myFileMan), desc='File Manager'),
     Key([mod, "shift"], "m", lazy.spawn(myMusic), desc='Music Player'),
+    Key([mod, "shift"], "p", lazy.spawn(myPowerMenu), desc='Power Menu'),
     Key([mod, "shift"], "r", lazy.spawn("rofi -show drun -show-icons"), desc='Rofi Launcher'),
+    Key([mod, "shift"], "t", lazy.spawn(myTerm), desc="Terminal"),
     Key([mod, "shift"], "w", lazy.layout.next(), desc="Move window focus next window"),
     Key([mod, "shift"], "space", lazy.next_layout(), desc="Toggle between layouts"),
     
@@ -170,14 +172,13 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox(" Bluetooth", name="default"),
-                widget.TextBox("default config", name="default"),
                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
+                widget.TextBox(" ", mouse_callbacks ={'Button1': lambda: qtile.cmd_spawn(myPowerMenu)}),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
