@@ -40,12 +40,12 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 #from libqtile.utils import guess_terminal
 
-mod = "mod4"                    # Sets mod key to SUPER/WINDOWS
-myTerm = "alacritty"            # My terminal of choice
-myBrowser = "firefox"           # My browser of choice
-myFileMan = "pcmanfm"           # My file manager of choice
-myMusic = "alacritty -e cmus"   # My music player of choice
-myPowerMenu = "/usr/local/bin/powermenu"   # My PowerMenu
+mod = "mod4"                               # Sets mod key to SUPER/WINDOWS
+myTerm = "alacritty"                       # My terminal of choice
+myBrowser = "firefox"                      # My browser of choice
+myFileMan = "pcmanfm"                      # My file manager of choice
+myMusic = "alacritty -e cmus"              # My music player of choice
+myPowerMenu = "/usr/local/bin/powermenu"   # Rofi Power Menu
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -172,12 +172,12 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                #widget.QuickExit(),
                 widget.TextBox(" ", mouse_callbacks ={'Button1': lambda: qtile.cmd_spawn(myPowerMenu)}),
             ],
             24,
