@@ -1,13 +1,13 @@
 clear
 
-read -p “Enter your GitHub email address:  “ email
-read -p “Enter your GitHub user name:  “ username
+read -p "Enter your GitHub email address:  " email
+read -p "Enter your GitHub user name:  " username
 
 
-echo “The email address you entered is $email”
-echo “The username you entered is $username”
+echo "The email address you entered is $email"
+echo "The username you entered is $username"
 
-git config –global user.email $email
-git config –global user.name $username
+git config --global user.email $email
+git config --global user.name $username
 
-echo “Git Settings Updated...”
+echo "Git Settings Updated..."
