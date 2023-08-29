@@ -96,6 +96,14 @@ install_path=$(pwd)
 [ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
 [ ! -d ~/.config/rofi ] && mkdir -p ~/.config/rofi
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
+[ ! -d ~/Desktop ] && mkdir -p ~/Desktop
+[ ! -d ~/Documents ] && mkdir -p ~/Documents
+[ ! -d ~/Downloads ] && mkdir -p ~/Downloads
+[ ! -d ~/Music ] && mkdir -p ~/Music
+[ ! -d ~/Pictures ] && mkdir -p ~/Pictures
+[ ! -d ~/Public ] && mkdir -p ~/Public
+[ ! -d ~/Templates ] && mkdir -p ~/Templates
+[ ! -d ~/Videos ] && mkdir -p ~/Videos
 mv $install_path/configs/.bashrc ~/.bashrc
 mv $install_path/configs/alacritty.yml ~/.config/alacritty/
 mv $install_path/configs/power.rasi ~/.config/rofi/
