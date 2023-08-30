@@ -86,7 +86,7 @@ sudo timedatectl set-ntp true
 ###  BASE PACKAGE INSTALLATION SECTION  ###
 ###########################################
 clear
-sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db
+sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db polybar
 
 ##########################################
 ###  BASE CONFIG INSTALLATION SECTION  ###
@@ -94,6 +94,8 @@ sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop 
 install_path=$(pwd)
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 [ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
+[ ! -d ~/.config/autostart ] && mkdir -p ~/.config/autostart
+[ ! -d ~/.config/polybar ] && mkdir -p ~/.config/polybar
 [ ! -d ~/.config/rofi ] && mkdir -p ~/.config/rofi
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
 [ ! -d ~/Desktop ] && mkdir -p ~/Desktop
@@ -106,7 +108,9 @@ install_path=$(pwd)
 [ ! -d ~/Videos ] && mkdir -p ~/Videos
 mv $install_path/configs/.bashrc ~/.bashrc
 mv $install_path/configs/alacritty.yml ~/.config/alacritty/
+mv $install_path/configs/config.ini ~/.config/polybar/
 mv $install_path/configs/power.rasi ~/.config/rofi/
+mv $install_path/scripts/autostart.sh ~/.config/autostart/
 sudo mv $install_path/scripts/* /usr/local/bin/
 
 #clear
