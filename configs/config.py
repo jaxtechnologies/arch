@@ -34,11 +34,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-#from libqtile import bar, layout, widget
+import os
+import subprocess
+
 from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-#from libqtile.utils import guess_terminal
+
+@hook.subscribe.startup
+def autostart():
+    home = os.path.expanduser('~/.config/autostart/autostart.sh')
+    subprocess.Popen([home])
 
 mod = "mod4"                               # Sets mod key to SUPER/WINDOWS
 myTerm = "alacritty"                       # My terminal of choice
