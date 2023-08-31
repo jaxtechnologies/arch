@@ -86,7 +86,7 @@ sudo timedatectl set-ntp true
 ###  BASE PACKAGE INSTALLATION SECTION  ###
 ###########################################
 clear
-sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db polybar
+sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db polybar networkmanager neofetch
 
 ##########################################
 ###  BASE CONFIG INSTALLATION SECTION  ###
@@ -162,6 +162,15 @@ echo "###################################"
 # Standard Arch Linux does not create this file by default.
 [ ! -f "/etc/sddm.conf" ] && \
     sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf || echo "Default sddm system config file is not found."
+
+echo "################################"
+echo "## Start and Enable Services. ##"
+echo "################################"
+sudo systemctl start NetworkManager
+sudo systemctl enable NetworkManager
+sudo systemctl start sshd
+sudo systemctl enable sshd
+
 
 echo "##############################"
 echo "## JTOS has been installed! ##"
