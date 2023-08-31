@@ -21,3 +21,5 @@ alias vix='vim ~/.config/xmonad/xmonad.hs'
 alias vib='vim ~/.config/xmobar/xmobarrc'
 PS1='[\u@\h \W]\$ '
 export PATH="~/.local/bin:$PATH"
+
+neofetch
