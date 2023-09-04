@@ -1,7 +1,6 @@
 
 Bluetooth = 
 Clipboard = 
-Passwords = 
 Screenshot = 
 To Do = 
 USB = 
@@ -11,16 +10,15 @@ Wrench = 
 
 Hibernate = 
 Lock = 
-Logout = 
-Poweroff = 
 Poweroff = 
 Reboot = 
 Suspend = 
 
+Lock = 
+Logout = 
 Poweroff = 
 Reboot = 
-Lock = 
 Suspend = 
-Logout = 
+
 Yes = 
 No = 
