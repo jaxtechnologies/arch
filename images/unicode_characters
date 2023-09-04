@@ -1,10 +1,19 @@
-("", "rofi-bluetooth", "Bluetooth"),
-("", "rofi -modi 'clipboard:greenclip print' -show", "Clipboard History"),
-("", "rofi-pass", "Passwords"),
-("", "rofi-todo -f /home/ralsina/todo.txt", "Todo"),
-("", "flameshot gui", "Screenshot"),
-("", "wrench"),
-("", "power-button"),
-("", "volume"),
-("", "wifi"),
-("", "usb"),
+Bluetooth = 
+Clipboard = 
+Passwords = 
+Poweroff = 
+Screenshot = 
+To Do = 
+USB = 
+Volume = 
+WiFi = 
+Wrench = 
+
+
+Poweroff = 
+Reboot = 
+Lock = 
+Suspend = 
+Logout = 
+Yes = 
+No = 
