@@ -112,7 +112,7 @@ mv $install_path/configs/.bashrc ~/.bashrc
 mv $install_path/configs/alacritty.yml ~/.config/alacritty/
 mv $install_path/configs/config.ini ~/.config/polybar/
 mv $install_path/configs/colors/* ~/.config/rofi/colors/
-mv $install_path/configs/themes/powermenu.rasi ~/.config/rofi/themes/
+mv $install_path/configs/themes/* ~/.config/rofi/themes/
 mv $install_path/scripts/autostart.sh ~/.config/autostart/
 sudo mv $install_path/scripts/* /usr/local/bin/
 mv $install_path/sounds/* ~/Music/
