@@ -22,7 +22,7 @@ myTerm = "alacritty"                       # My terminal of choice
 myBrowser = "firefox"                      # My browser of choice
 myFileMan = "pcmanfm"                      # My file manager of choice
 myMusic = "alacritty -e cmus"              # My music player of choice
-myPowerMenu = "/usr/local/bin/powermenu"   # Rofi Power Menu
+myPowerMenu = "/usr/local/bin/powermenu.sh"   # Rofi Power Menu
 
 keys = [
     # A list of available commands that can be bound to keys can be found
