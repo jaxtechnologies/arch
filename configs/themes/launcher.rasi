@@ -1,8 +1,5 @@
 /**
  *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
  * Rofi Theme File
  * Rofi Version: 1.7.3
  **/
@@ -19,11 +16,13 @@ configuration {
 	window-format:              "{w} · {c} · {t}";
 }
 
-/*****----- Global Properties -----*****/
-/*****@import                          "shared/colors.rasi" *****/
-/*****@import                          "shared/fonts.rasi" *****/
-@import                          "colors.rasi"
-@import                          "fonts.rasi"
+/*****----- Color Scheme -----*****/
+@import "~/.config/rofi/colors/black.rasi"
+
+/*****----- Fonts -----*****/
+* {
+    font: "JetBrains Mono Nerd Font 10";
+}
 
 * {
     border-colour:               var(selected);
