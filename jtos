@@ -86,7 +86,7 @@ sudo timedatectl set-ntp true
 ###  BASE PACKAGE INSTALLATION SECTION  ###
 ###########################################
 clear
-sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db polybar networkmanager neofetch
+sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db polybar networkmanager neofetch inetutils
 
 ##########################################
 ###  BASE CONFIG INSTALLATION SECTION  ###
@@ -97,6 +97,8 @@ install_path=$(pwd)
 [ ! -d ~/.config/autostart ] && mkdir -p ~/.config/autostart
 [ ! -d ~/.config/polybar ] && mkdir -p ~/.config/polybar
 [ ! -d ~/.config/rofi ] && mkdir -p ~/.config/rofi
+[ ! -d ~/.config/rofi/colors ] && mkdir -p ~/.config/rofi/colors
+[ ! -d ~/.config/rofi/themes ] && mkdir -p ~/.config/rofi/themes
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
 [ ! -d ~/Desktop ] && mkdir -p ~/Desktop
 [ ! -d ~/Documents ] && mkdir -p ~/Documents
@@ -109,7 +111,8 @@ install_path=$(pwd)
 mv $install_path/configs/.bashrc ~/.bashrc
 mv $install_path/configs/alacritty.yml ~/.config/alacritty/
 mv $install_path/configs/config.ini ~/.config/polybar/
-mv $install_path/configs/power.rasi ~/.config/rofi/
+mv $install_path/configs/colors/* ~/.config/rofi/colors/
+mv $install_path/configs/themes/powermenu.rasi ~/.config/rofi/themes/
 mv $install_path/scripts/autostart.sh ~/.config/autostart/
 sudo mv $install_path/scripts/* /usr/local/bin/
 mv $install_path/sounds/* ~/Music/
