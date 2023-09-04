@@ -23,6 +23,7 @@ myBrowser = "firefox"                      # My browser of choice
 myFileMan = "pcmanfm"                      # My file manager of choice
 myMusic = "alacritty -e cmus"              # My music player of choice
 myPowerMenu = "/usr/local/bin/powermenu.sh"   # Rofi Power Menu
+myLauncher = "/usr/local/bin/launcher.sh"   # Rofi Launcher Menu
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -34,7 +35,8 @@ keys = [
     Key([mod, "shift"], "f", lazy.spawn(myFileMan), desc='File Manager'),
     Key([mod, "shift"], "m", lazy.spawn(myMusic), desc='Music Player'),
     Key([mod, "shift"], "p", lazy.spawn(myPowerMenu), desc='Power Menu'),
-    Key([mod, "shift"], "r", lazy.spawn("rofi -show drun -show-icons"), desc='Rofi Launcher'),
+    #Key([mod, "shift"], "r", lazy.spawn("rofi -show drun -show-icons"), desc='Rofi Launcher'),
+    Key([mod, "shift"], "r", lazy.spawn(myLauncher), desc='Rofi Launcher'),
     Key([mod, "shift"], "t", lazy.spawn(myTerm), desc="Terminal"),
     Key([mod, "shift"], "w", lazy.layout.next(), desc="Move window focus next window"),
     Key([mod, "shift"], "space", lazy.next_layout(), desc="Toggle between layouts"),
