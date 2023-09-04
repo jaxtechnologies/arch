@@ -1,7 +1,7 @@
+
 Bluetooth = 
 Clipboard = 
 Passwords = 
-Poweroff = 
 Screenshot = 
 To Do = 
 USB = 
@@ -9,6 +9,13 @@ Volume = 
 WiFi = 
 Wrench = 
 
+Hibernate = 
+Lock = 
+Logout = 
+Poweroff = 
+Poweroff = 
+Reboot = 
+Suspend = 
 
 Poweroff = 
 Reboot = 
