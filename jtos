@@ -86,7 +86,7 @@ sudo timedatectl set-ntp true
 ###  BASE PACKAGE INSTALLATION SECTION  ###
 ###########################################
 clear
-sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db polybar networkmanager neofetch inetutils
+sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db polybar networkmanager neofetch inetutils conky
 
 ##########################################
 ###  BASE CONFIG INSTALLATION SECTION  ###
@@ -95,6 +95,7 @@ install_path=$(pwd)
 [ ! -d /usr/share/backgrounds ] && sudo mkdir -p /usr/share/backgrounds
 [ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
 [ ! -d ~/.config/autostart ] && mkdir -p ~/.config/autostart
+[ ! -d ~/.config/conky ] && mkdir -p ~/.config/conky
 [ ! -d ~/.config/polybar ] && mkdir -p ~/.config/polybar
 [ ! -d ~/.config/rofi ] && mkdir -p ~/.config/rofi
 [ ! -d ~/.config/rofi/colors ] && mkdir -p ~/.config/rofi/colors
@@ -110,6 +111,7 @@ install_path=$(pwd)
 [ ! -d ~/Videos ] && mkdir -p ~/Videos
 mv $install_path/configs/.bashrc ~/.bashrc
 mv $install_path/configs/alacritty.yml ~/.config/alacritty/
+mv $install_path/configs/conky.conf ~/.config/conky/
 mv $install_path/configs/config.ini ~/.config/polybar/
 mv $install_path/configs/colors/* ~/.config/rofi/colors/
 mv $install_path/configs/themes/* ~/.config/rofi/themes/
