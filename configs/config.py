@@ -46,8 +46,6 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),    
 
     # Need to work on with dmenu scripts
-    #Key([mod, "shift"], "q", lazy.spawn("dm-logout"), desc="Logout menu"),
-    #Key([mod, "shift"], "r", lazy.spawn("dm-run"), desc='Run Launcher'),  # Will replace Super+Shift+R when working???
     #Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ###################################################    
     # Toggle between different layouts as defined below    
