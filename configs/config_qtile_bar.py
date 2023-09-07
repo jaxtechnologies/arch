@@ -8,14 +8,9 @@
 import os
 import subprocess
 
-from libqtile import bar, layout, widget, qtile, hook
+from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-
-@hook.subscribe.startup
-def autostart():
-    home = os.path.expanduser('~/.config/autostart/autostart.sh')
-    subprocess.Popen([home])
 
 mod = "mod4"                               # Sets mod key to SUPER/WINDOWS
 myTerm = "alacritty"                       # My terminal of choice
