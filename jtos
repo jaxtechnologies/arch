@@ -86,7 +86,7 @@ sudo timedatectl set-ntp true
 ###  BASE PACKAGE INSTALLATION SECTION  ###
 ###########################################
 clear
-sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-font-awesome cmatrix cmus pcmanfm slock polkit man-db polybar networkmanager neofetch inetutils conky
+sudo pacman -Sy rofi xterm xwallpaper alacritty vim firefox picom sddm exa htop mlocate wget unzip pacman-contrib ttf-firacode-nerd cmatrix cmus pcmanfm slock polkit man-db polybar networkmanager neofetch inetutils conky xorg-xclipboard
 
 ##########################################
 ###  BASE CONFIG INSTALLATION SECTION  ###
