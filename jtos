@@ -148,11 +148,18 @@ if [ "$REPLY" = "y" ]; then
 	sudo pacman -Sy qtile
 	[ ! -d ~/.config/qtile ] && mkdir -p ~/.config/qtile
 	[ ! -d ~/.config/qtile/icons ] && mkdir -p ~/.config/qtile/icons
-	mv $install_path/configs/config.py ~/.config/qtile/
 	mv $install_path/images/qtile-launch.png ~/.config/qtile/icons/
         sudo mv $install_path/backgrounds/qtile.png /usr/share/backgrounds/
 else
 	cancel
+fi
+
+#clear
+read -p "Do you want Qtile to use PolyBar versus the Default Qtile Bar... (y/n)? "
+if [ "$REPLY" = "y" ]; then
+	mv $install_path/configs/config_qtile_polybar.py ~/.config/qtile/config.py
+else
+	mv $install_path/configs/config_qtile_bar.py ~/.config/qtile/config.py
 fi
 
 # Disable the current login manager
