@@ -146,7 +146,7 @@ screens = [
             [
                 widget.Image(
                     filename = "~/.config/qtile/icons/qtile-launch.png",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("rofi -show drun -show-icons")}
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myLauncher)}
                 ),
                 widget.CurrentLayout(),
                 widget.GroupBox(),
