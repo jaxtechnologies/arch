@@ -15,12 +15,12 @@ rofi_cmd() {
 		-theme ${theme}
 }
 
-chosen=$(printf " Lock\n Logout\n Poweroff\n Reboot" | rofi_cmd )
+chosen=$(printf " Lock\n Logout\n Poweroff\n Reboot" | rofi_cmd )
 
 case "$chosen" in
-	" Lock") slock ;;
-	" Logout") qtile cmd-obj -o cmd -f shutdown ;;
-	" Poweroff") poweroff ;;
-	" Reboot") reboot ;;
+	" Lock") slock ;;
+	" Logout") qtile cmd-obj -o cmd -f shutdown ;;
+	" Poweroff") poweroff ;;
+	" Reboot") reboot ;;
 	*) exit 1 ;;
 esac
